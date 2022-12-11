@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 
 class Website(object):
@@ -28,4 +30,12 @@ if __name__ == "__main__":
     """
     url_lst = ["http://localhost:3000/webcrawl_tutorial.html"]
 
-    print("Hi")
+    for url in url_lst:
+
+        driver = webdriver.Firefox()
+        driver.get(url)
+
+        page = Soup(driver.page_source, features="html.parser")
+
+        for links in page.findAll("a"):
+            print(links)
