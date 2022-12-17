@@ -35,6 +35,12 @@ if __name__ == "__main__":
         driver = webdriver.Firefox()
         driver.get(url)
 
+        # get elements using Selenium
+        a_links = driver.find_elements_by_xpath("a")
+
+        driver.close()
+
+        # convert to bs4 element and crawl as usual here
         page = Soup(driver.page_source, features="html.parser")
 
         for links in page.findAll("a"):
