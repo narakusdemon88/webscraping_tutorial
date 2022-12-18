@@ -28,20 +28,29 @@ if __name__ == "__main__":
         8. selenium
         9. convert selenium into bs4 instance
     """
-    url_lst = ["http://localhost:3000/webcrawl_tutorial.html"]
+    url_lst = ["http://localhost:8888/webcrawl_tutorial.html"]
 
     for url in url_lst:
+
+        # my_site = Website(url).soup
+        #
+        # for a_tag in my_site.findAll("a"):
+        #     url = a_tag.attrs['href']
 
         driver = webdriver.Firefox()
         driver.get(url)
 
-        # get elements using Selenium
-        a_links = driver.find_elements_by_xpath("a")
+        driver.find_elements(by='xpath', )
 
-        driver.close()
-
-        # convert to bs4 element and crawl as usual here
-        page = Soup(driver.page_source, features="html.parser")
-
-        for links in page.findAll("a"):
-            print(links)
+        print("HI")
+        #
+        # # get elements using Selenium
+        # a_links = driver.find_elements_by_xpath("a")
+        #
+        # driver.close()
+        #
+        # # convert to bs4 element and crawl as usual here
+        # page = Soup(driver.page_source, features="html.parser")
+        #
+        # for links in page.findAll("a"):
+        #     print(links)
